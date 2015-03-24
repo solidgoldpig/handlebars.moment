@@ -1,0 +1,36 @@
+{
+    "name": "handlebars.moment",
+    "description": "Handlebars helpers for moment.js",
+    "version": "1.0.0",
+    "main": "handlebars.moment.js",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/solidgoldpig/handlebars.moment.git#1.0.0"
+    },
+    "homepage": "http://moment.handlebars.solidgoldpig.com",
+    "bugs": "https://github.com/solidgoldpig/handlebars.moment/issues",
+    "keywords": [
+        "handlebars",
+        "moment",
+        "duration",
+        "date",
+        "time",
+        "format"
+    ],
+    "dependencies": {
+        "moment": ">0.0.0"
+    },
+    "devDependencies": {
+        "handlebars": ">0.0.0",
+        "jasmine-node": "^1.14.x",
+        "log": "^1.4.0"
+    },
+    "scripts": {
+        "test": "jasmine-node --verbose spec"
+    },
+    "author": {
+        "name": "Alex Robinson",
+        "email": "handlebars.moment@alex.solidgoldpig.com"
+    },
+    "license": "UNLICENSE"
+}
