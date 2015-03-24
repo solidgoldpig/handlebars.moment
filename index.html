@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/jquery-1.11.2.min.js"> </script>
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h2>Handlebars Moment.js helper</h2><pre class="prettyprint source"><code>{{moment}}</code></pre><p>Content helpers providing <a href="http://handlebarsjs.com">Moment.js</a> functionality for <a href="http://handlebarsjs.com">Handlebars</a></p>
+<h3>Version</h3><p>1.0.0</p>
+<h3>Installation</h3><pre class="prettyprint source"><code>npm install handlebars.moment</code></pre><h3>Registering the helpers</h3><pre class="prettyprint source"><code>var Handlebars = require(&quot;handlebars&quot;);
+var MomentHandler = require(&quot;handlebars.moment&quot;);
+MomentHandler.registerHelpers(Handlebars);</code></pre><h3>Using the helpers</h3><h4>moment</h4><p>Current date</p>
+<pre class="prettyprint source"><code>{{moment}}</code></pre><p>Specific date</p>
+<pre class="prettyprint source"><code>{{moment d}}
+{{moment date=d}}</code></pre><p>Date format</p>
+<pre class="prettyprint source"><code>{{moment d &quot;YY, MMM dd&quot;}}
+{{moment date=d format=&quot;DD/MM/YYYY&quot;}}
+{{moment d unix=true}}</code></pre><p>Date input parsing</p>
+<pre class="prettyprint source"><code>{{moment dinput input=&quot;DD-YYYY-MM&quot;}}</code></pre><p>Date timezone</p>
+<pre class="prettyprint source"><code>{{moment dstr utc=true}}
+{{moment dstr local=true}}</code></pre><p>Date units</p>
+<pre class="prettyprint source"><code>{{moment d &quot;millisecond&quot;}}
+{{moment d &quot;second&quot;}}
+{{moment d &quot;minute&quot;}}
+{{moment d &quot;hour&quot;}}
+{{moment d &quot;date&quot;}}
+{{moment d &quot;day&quot;}}
+{{moment d &quot;weekday&quot;}}
+{{moment d &quot;weekday&quot; type=&quot;s&quot;}}
+{{moment d &quot;weekday&quot; type=&quot;xs&quot;}}
+{{moment d &quot;weekday&quot; type=&quot;number&quot;}}
+{{moment d &quot;isoweekday&quot;}}
+{{moment d &quot;dayofyear&quot;}}
+{{moment d &quot;week&quot;}}
+{{moment d &quot;isoweek&quot;}}
+{{moment d &quot;month&quot;}}
+{{moment d &quot;year&quot;}}
+{{moment d &quot;weekyear&quot;}}
+{{moment d &quot;isoweekyear&quot;}}</code></pre><p>Date manipulation</p>
+<pre class="prettyprint source"><code>{{moment d add=&quot;days&quot; amount=&quot;7&quot;}}
+{{moment d add=&quot;365&quot; addparam=&quot;d&quot;}}
+{{moment d subtract=&quot;days&quot; amount=&quot;7&quot;}}
+{{moment d subtract=&quot;365&quot; subtractparam=&quot;d&quot;}}</code></pre><p>Start and end of years</p>
+<pre class="prettyprint source"><code>{{moment d startof=&quot;year&quot;}}
+{{moment d endof=&quot;year&quot;}}</code></pre><p>Date thresholds</p>
+<pre class="prettyprint source"><code>{{moment d max=dmax}}
+{{moment d min=dmin}}</code></pre><p>Date from now and specific dates</p>
+<pre class="prettyprint source"><code>{{moment d &quot;fromNow&quot;}}
+{{moment d &quot;from&quot; dfrom}}</code></pre><p>Difference between dates</p>
+<pre class="prettyprint source"><code>{{moment d diff=ddiff}}</code></pre><p>Date as calendar time</p>
+<pre class="prettyprint source"><code>{{moment d &quot;calendar&quot;}}</code></pre><p>Date as strings
+    {{moment d &quot;str&quot;}}
+    {{moment d &quot;val&quot;}}
+    {{moment d &quot;unix&quot;}}</p>
+<p>Moment utils</p>
+<pre class="prettyprint source"><code>{{moment d &quot;daysinmonth&quot;}}
+{{moment d &quot;todate&quot;}}
+{{moment d &quot;array&quot;}}
+{{moment d &quot;isostring&quot;}}</code></pre><p>See <a href="template-moment.html">moment</a> helper for more details</p>
+<h4>duration</h4><p>Duration - implictly in milliseconds</p>
+<pre class="prettyprint source"><code>{{duration d}}</code></pre><p>Duration with explicit input date unit type</p>
+<pre class="prettyprint source"><code>{{duration d input=&quot;s&quot;}}</code></pre><p>Amount of date units in duration</p>
+<pre class="prettyprint source"><code>{{duration d &quot;seconds&quot;}}
+{{duration d &quot;minutes&quot;}}
+{{duration d &quot;years&quot;}}
+{{duration d get=&quot;seconds&quot;}}
+{{duration d &quot;s&quot;}}</code></pre><p>Duration as date units</p>
+<pre class="prettyprint source"><code>{{duration d &quot;asseconds&quot;}}
+{{duration d &quot;asminutes&quot;}}
+{{duration d &quot;asyears&quot;}}
+{{duration d as=&quot;seconds&quot;}}</code></pre><p>Humanize duration output</p>
+<pre class="prettyprint source"><code>{{duration d &quot;humanize&quot;}}
+{{duration d &quot;humanize&quot; true}}
+{{duration d suffix=true}}</code></pre><p>Manipulate durations</p>
+<pre class="prettyprint source"><code>{{duration d add=damount as=&quot;milliseconds&quot;}}
+{{duration d subtract=damount as=&quot;seconds&quot;}}
+{{duration d subtract=damount as=&quot;days&quot;}}</code></pre><p>See <a href="template-duration.html">duration</a> helper for more details</p>
+<h3>Tests</h3><p>To run the tests, cd to the handlebars.choice directory</p>
+<pre class="prettyprint source"><code>npm install && npm test</code></pre></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3 class="modules">Modules</h3><ul><li><a href="module-handlebars%2525moment.html">handlebars.moment</a></li></ul><h3 class="template-helpers">Template helpers</h3><ul><li><a href="template-duration.html">duration</a></li><li><a href="template-moment.html">moment</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0-beta1</a> on Tue Mar 24 2015 20:27:55 GMT+0000 (GMT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
