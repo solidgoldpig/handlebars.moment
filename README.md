@@ -6,7 +6,7 @@ Content helpers providing [Moment.js](http://handlebarsjs.com) functionality for
 
 ### Version
 
-1.0.1
+1.0.2
 
 ### Installation
 
