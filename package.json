@@ -1,11 +1,11 @@
 {
     "name": "handlebars.moment",
     "description": "Handlebars helpers for moment.js",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "main": "handlebars.moment.js",
     "repository": {
         "type": "git",
-        "url": "git://github.com/solidgoldpig/handlebars.moment.git#1.0.0"
+        "url": "git://github.com/solidgoldpig/handlebars.moment.git#1.0.1"
     },
     "homepage": "http://moment.handlebars.solidgoldpig.com",
     "bugs": "https://github.com/solidgoldpig/handlebars.moment/issues",

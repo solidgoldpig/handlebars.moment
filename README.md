@@ -6,7 +6,7 @@ Content helpers providing [Moment.js](http://handlebarsjs.com) functionality for
 
 ### Version
 
-1.0.0
+1.0.1
 
 ### Installation
 
@@ -150,7 +150,9 @@ Manipulate durations
 
 To run the tests, cd to the handlebars.choice directory
 
-    npm install && npm test### Unlicense
+    npm install && npm test
+
+### Unlicense
 
 handlebars.moment is free and unencumbered software released into 
 the public domain.

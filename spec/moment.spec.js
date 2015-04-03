@@ -205,11 +205,11 @@ describe("Moment helper - calendar", function() {
         var futurehour = (hvalue + future) % 24;
         var futuremeridian = getMeridian(futurehour);
         futurehour = getHour(futurehour);
-        var dvalue = now.getDate();
-        var pastday = (dvalue - past + 7) % 7;
+        var pastday = (now.getDay() + 7 - past) % 7;
         var pasthour = getHour(hvalue);
         var pastmeridian = getMeridian(hvalue);
-        var days = ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+        var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        console.log("pastday", pastday);
         expect(template('{{moment date "calendar" add="hours" amount=future}}', {date: now, future: future})).toBe(futurecalendar + " at " + futurehour + ":" + mvalue + " " + futuremeridian);
         expect(template('{{moment date "calendar" subtract="days" amount=past}}', {date: now, past: past})).toBe("Last " + days[pastday] + " at " + pasthour + ":" + mvalue + " " + pastmeridian);
     });
