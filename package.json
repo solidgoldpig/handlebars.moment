@@ -1,11 +1,11 @@
 {
     "name": "handlebars.moment",
     "description": "Handlebars helpers for moment.js",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "main": "handlebars.moment.js",
     "repository": {
         "type": "git",
-        "url": "git://github.com/solidgoldpig/handlebars.moment.git#1.0.2"
+        "url": "git://github.com/solidgoldpig/handlebars.moment.git#1.0.3"
     },
     "homepage": "http://moment.handlebars.solidgoldpig.com",
     "bugs": "https://github.com/solidgoldpig/handlebars.moment/issues",
@@ -26,7 +26,8 @@
         "log": "^1.4.0"
     },
     "scripts": {
-        "test": "jasmine-node --verbose spec"
+        "test": "./node_modules/jasmine-node/bin/jasmine-node spec",
+        "test:output": "npm test -- --verbose --config loglevel info"
     },
     "author": {
         "name": "Alex Robinson",
