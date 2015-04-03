@@ -458,3 +458,7 @@ small > span.str,
     font-size: 0.6em;
     text-transform: uppercase;
 }
+
+.prettyprint code {
+    white-space: pre-wrap;
+}
