@@ -59,7 +59,8 @@
          * @param {string|date} [date] Alternative date
          * @param {string} [format] Alternative format
          * @param {string} [input] Format to use to parse date
-         * @param {string} [lang] Specific locale to use
+         * @param {string} [lang] Specific locale to use (deprecated use locale)
+         * @param {string} [locale] Specific locale to use
          * @param {number|string} [type] Type of weekday (L|S|XS|number)
          * @param {boolean} [suffix]
          * @param {boolean} [utc]
@@ -248,8 +249,9 @@
                 momentObj = momentFn(date, params.input);
             }
 
-            if (params.lang) {
-                momentObj.lang(params.lang);
+            if (params.lang || params.locale) {
+                params.locale = params.locale || params.lang;
+                momentObj.locale(params.locale);
             }
 
             if (max) {
