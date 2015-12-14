@@ -2,7 +2,7 @@
 
     {{moment}}
 
-Content helpers providing [Moment.js](http://handlebarsjs.com) functionality for [Handlebars](http://handlebarsjs.com)
+Content helpers providing [Moment.js](http://momentjs.com) functionality for [Handlebars](http://handlebarsjs.com)
 
 ### Version
 
