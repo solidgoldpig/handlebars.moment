@@ -146,6 +146,14 @@ Manipulate durations
     {{duration d subtract=damount as="seconds"}}
     {{duration d subtract=damount as="days"}}
 
+### Using handlebars.moment in the browser
+
+`handlebars.moment` is written using a [UMD](https://github.com/umdjs/umd) pattern and it’s preferable to load it using a module loader that supports [AMD](http://addyosmani.com/writing-modular-js/) modules (eg. [RequireJS](http://requirejs.org/), [JSPM](http://jspm.io/)). This guarantees that its dependencies have been loaded before it is run.
+
+However, if a window element is detected, the function returned by `handlebars.moment` is assigned to `HandlebarsMoment` in the global window context. This function needs to be called with `lodash` and `moment` as its arguments. The resulting object has the  `registerHelpers` which must then be called for `handlebars` to know about the helper.
+
+    HandlebarsMoment(_, moment).registerHelpers(Handlebars);
+
 ### Tests
 
     npm test

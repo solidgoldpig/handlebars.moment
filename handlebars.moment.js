@@ -3,8 +3,9 @@
         module.exports = moduleFactory(require("lodash"), require("moment"));
     } else if (typeof define === "function" && define.amd) {
         define(["lodash", "moment"], moduleFactory);
-    } else if (typeof window !== 'undefined' && window != null) {
-        window.HandlebarsMoment = moduleFactory(_, moment);
+    } else if (typeof window !== 'undefined' && window != null && window.moment) {
+        window.HandlebarsMoment = moduleFactory;
+        // moduleFactory(_, moment);
     }
 }(function (_, moment) {
 /**
