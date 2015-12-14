@@ -18,10 +18,11 @@
         "format"
     ],
     "dependencies": {
-        "moment": ">0.0.0"
+        "lodash": ">1.0.0",
+        "handlebars": ">2.0.0",
+        "moment": ">2.7.0"
     },
     "devDependencies": {
-        "handlebars": ">0.0.0",
         "jasmine-node": "^1.14.x",
         "log": "^1.4.0"
     },
