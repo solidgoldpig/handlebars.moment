@@ -1,6 +1,7 @@
 var Log = require("log");
 var log = new Log(process.env.loglevel || "error");
 
+var Moment = require("moment");
 var Handlebars = require("handlebars");
 require("../handlebars.moment").registerHelpers(Handlebars);
 
@@ -164,21 +165,21 @@ describe("Moment helper - values", function() {
 });
 
 describe("Moment helper - from", function() {
-    it("should output difference from current time", function () {
-        var ago = year - 2011;
-        expect(template('{{moment "1300000000000" "fromNow" utc=true}}')).toBe(ago+" years ago");
-        expect(template('{{moment "1300000000000" "fromnow" true utc=true}}')).toBe(ago+" years");
-        expect(template('{{moment "1300000000000" fn="fromnow" suffix=false utc=true}}')).toBe(ago+" years");
-        expect(template('{{moment "1300000000000" "fromnow" suffix=true utc=true}}')).toBe(ago+" years ago");
-    });
-    it("should output difference from specified time", function () {
-        var ago = year - 2011;
-        expect(template('{{moment "1300000000000" from=1200000000000 utc=true}}')).toBe("in 3 years");
-        expect(template('{{moment "1300000000000" "from" 1500000000000 utc=true}}')).toBe("6 years ago");
-        expect(template('{{moment "1300000000000" "from" 1500000000000 true utc=true}}')).toBe("6 years");
-        expect(template('{{moment "1300000000000" "from" 1500000000000 suffix=false utc=true}}')).toBe("6 years");
-        expect(template('{{moment "1300000000000" "from" 1500000000000 nosuffix=true utc=true}}')).toBe("6 years");
-    });
+	it("should output difference from current time", function () {
+		var ago = new Date(1300000000000);
+		expect(template('{{moment "1300000000000" "fromNow" utc=true}}')).toBe(Moment(ago).fromNow());
+		expect(template('{{moment "1300000000000" "fromnow" true utc=true}}')).toBe(Moment(ago).fromNow(true));
+		expect(template('{{moment "1300000000000" fn="fromnow" suffix=false utc=true}}')).toBe(Moment(ago).fromNow(true));
+		expect(template('{{moment "1300000000000" "fromnow" suffix=true utc=true}}')).toBe(Moment(ago).fromNow());
+	});
+	it("should output difference from specified time", function () {
+		var ago = year - 2011;
+		expect(template('{{moment "1300000000000" from=1200000000000 utc=true}}')).toBe("in 3 years");
+		expect(template('{{moment "1300000000000" "from" 1500000000000 utc=true}}')).toBe("6 years ago");
+		expect(template('{{moment "1300000000000" "from" 1500000000000 true utc=true}}')).toBe("6 years");
+		expect(template('{{moment "1300000000000" "from" 1500000000000 suffix=false utc=true}}')).toBe("6 years");
+		expect(template('{{moment "1300000000000" "from" 1500000000000 nosuffix=true utc=true}}')).toBe("6 years");
+	});
 });
 
 
