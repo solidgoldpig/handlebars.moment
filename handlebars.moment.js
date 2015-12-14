@@ -18,6 +18,9 @@
 
     var MomentHelpers = function (Handlebars) {
         var momentFormatMap = {
+            dates: "date",
+            months: "month",
+            years: "year",
             isoweekday: "isoWeekday",
             dayofyear: "dayOfYear",
             isoweek: "isoWeek",
@@ -141,7 +144,7 @@
          *     {{moment d startof="year"}}
          *     {{moment d endof="year"}}
          *
-         * Date thresholds
+         * Date max/min
          * 
          *     {{moment d max=dmax}}
          *     {{moment d min=dmin}}
@@ -253,10 +256,10 @@
             }
 
             if (max) {
-                momentObj = momentObj.max(max);
+                momentObj = moment.max(max, momentObj);
             }
             if (min) {
-                momentObj = momentObj.min(min);
+                momentObj = moment.min(min, momentObj);
             }
 
             if (ofType) {
