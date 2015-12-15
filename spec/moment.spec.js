@@ -136,9 +136,11 @@ describe("Moment helper - manipulation", function() {
         expect(template('{{moment endof="year" utc=true}}')).toBe(year + "-12-31T23:59:59+00:00");
         expect(template('{{moment 1300000000000 endof="year" utc=true}}')).toBe("2011-12-31T23:59:59+00:00");
     });
-    it("should be able to determine whether a date has passed a threshold", function () {
+    it("should be able to determine which date is max/min", function () {
         expect(template('{{moment "1300000000000" max="1250000000000" utc=true}}')).toBe(Moment(1300000000000).utc().format());
+        expect(template('{{moment "1250000000000" max="1300000000000" utc=true}}')).toBe(Moment(1300000000000).utc().format());
         expect(template('{{moment "1300000000000" min="1350000000000" utc=true}}')).toBe(Moment(1300000000000).utc().format());
+        expect(template('{{moment "1350000000000" min="1300000000000" utc=true}}')).toBe(Moment(1300000000000).utc().format());
     });
 });
 

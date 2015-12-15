@@ -259,10 +259,10 @@
             }
 
             if (max) {
-                momentObj = moment.max(max, momentObj);
+                momentObj = moment.max(moment(max), momentObj);
             }
             if (min) {
-                momentObj = moment.min(min, momentObj);
+                momentObj = moment.min(moment(min), momentObj);
             }
 
             if (ofType) {
