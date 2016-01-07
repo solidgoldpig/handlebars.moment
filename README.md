@@ -6,7 +6,7 @@ Content helpers providing [Moment.js](http://momentjs.com) functionality for [Ha
 
 ### Version
 
-1.0.3
+1.0.4
 
 ### Installation
 
