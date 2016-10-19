@@ -1,6 +1,14 @@
 (function (moduleFactory) {
     if (typeof exports === "object") {
-        module.exports = moduleFactory(require("lodash"), require("moment"));
+        var moment;
+        try {
+          moment = require('moment-timezone')
+        }
+        catch(e) {
+          // moment-timezone is not installed, use moment
+          moment = require('moment')
+        }
+        module.exports = moduleFactory(require("lodash"), moment);
     } else if (typeof define === "function" && define.amd) {
         define(["lodash", "moment"], moduleFactory);
     } else if (typeof window !== 'undefined' && window != null && window.moment) {
@@ -64,6 +72,7 @@
          * @param {*} [4] Moment method params 2
          * @param {string|date} [date] Alternative date
          * @param {string} [format] Alternative format
+         * @param {string} [timezone] Timezone
          * @param {string} [input] Format to use to parse date
          * @param {string} [lang] Specific locale to use
          * @param {number|string} [type] Type of weekday (L|S|XS|number)
@@ -267,6 +276,10 @@
 
             if (ofType) {
                 momentObj = momentObj[ofMethod + "Of"](ofType);
+            }
+            
+            if(params.timezone) {
+                momentObj = momentObj.tz(params.timezone)
             }
 
             if (params.nosuffix === undefined && params.suffix !== undefined) {
